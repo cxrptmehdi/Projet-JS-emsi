@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #e8f5e9;
+}
+
+td button {
+    padding: 5px 8px;
+    border: none;
+    background: #2e7d32;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#adminSection {
+    margin-bottom: 20px;
+}
+
+#productForm input {
+    margin-right: 10px;
+    padding: 8px;
+}

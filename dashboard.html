@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farm Store | Dashboard</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">🌾 Farm Equipment Store</div>
+    <div>
+        <button id="themeToggle">🌙</button>
+        <span id="username"></span>
+        <button id="logoutBtn">Logout</button>
+        <a href="cart.html" class="cart-btn">
+    🛒 <span id="cartCount">0</span></a>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="categories.html" class="admin-only">Categories</a>
+        <a href="clients.html" class="admin-only">Clients</a>
+        <a href="orders.html">Orders</a>
+        <a href="suppliers.html" class="admin-only">Suppliers</a>
+    </div>
+
+    <div class="content">
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+            <div class="card" id="productsCount"></div>
+            <div class="card" id="ordersCount"></div>
+            <div class="card" id="clientsCount"></div>
+            <div class="card" id="revenue"></div>
+        </div>
+
+        <canvas id="ordersChart" height="100"></canvas>
+    </div>
+</div>
+
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

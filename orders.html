@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farm Store | Orders</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">🌾 Farm Equipment Store</div>
+    <div>
+        <button id="themeToggle">🌙</button>
+        <span id="username"></span>
+        <button id="logoutBtn">Logout</button>
+        <a href="cart.html" class="cart-btn">
+    🛒 <span id="cartCount">0</span></a>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="categories.html" class="admin-only">Categories</a>
+        <a href="clients.html" class="admin-only">Clients</a>
+        <a href="orders.html">Orders</a>
+        <a href="suppliers.html" class="admin-only">Suppliers</a>
+    </div>
+
+    <div class="content">
+        <h1>Orders</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th class="admin-only">Actions</th>
+                    <button id="exportCsvBtn">Export CSV</button>
+
+                </tr>
+            </thead>
+            <tbody id="ordersTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="assets/js/orders.js"></script>
+</body>
+</html>
