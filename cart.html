@@ -11,14 +11,15 @@
 <div class="navbar">
     <div class="logo">🌾 Farm Equipment Store</div>
     <div>
-        <a href="cart.html" class="cart-btn">🛒 <span id="cartCount">0</span></a>
         <span id="username"></span>
         <button id="logoutBtn">Logout</button>
+        <a href="cart.html" class="cart-btn">🛒 <span id="cartCount">0</span></a>
     </div>
 </div>
 
 <div class="layout">
     <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
         <a href="products.html">Products</a>
         <a href="orders.html">Orders</a>
     </div>
@@ -38,6 +39,9 @@
             </thead>
             <tbody id="cartTable"></tbody>
         </table>
+        <h3 id="cartTotal"></h3>
+
+<button id="checkoutBtn">Checkout</button>
 
         <h3 id="cartTotal"></h3>
     </div>

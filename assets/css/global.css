@@ -103,3 +103,22 @@ body.dark th {
 body.dark td {
     border-color: #333;
 }
+.charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.chart-card {
+    background: var(--card-bg, #fff);
+    border-radius: 12px;
+    padding: 15px;
+    height: 280px; /* CONTROL SIZE HERE */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    height: 100% !important;
+}

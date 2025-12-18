@@ -1,4 +1,4 @@
-//DARK MODE
+// ================= DARK MODE =================
 const themeToggle = document.getElementById("themeToggle");
 
 if (localStorage.getItem("theme") === "dark") {
@@ -13,8 +13,7 @@ themeToggle.onclick = () => {
     );
 };
 
-
-
+// ================= AUTH =================
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) location.href = "index.html";
 
@@ -24,26 +23,28 @@ logoutBtn.onclick = () => {
     location.href = "index.html";
 };
 
+// ================= ORDERS =================
 if (!localStorage.getItem("orders")) {
-    localStorage.setItem("orders", JSON.stringify([
-        { id: 1, client: "Ahmed", date: "2025-01-10", total: 500, status: "Pending" },
-        { id: 2, client: "Sara", date: "2025-01-12", total: 1200, status: "Delivered" }
-    ]));
+    localStorage.setItem("orders", JSON.stringify([]));
 }
 
 let orders = JSON.parse(localStorage.getItem("orders"));
 
+// ================= RENDER =================
 function render() {
     ordersTable.innerHTML = "";
     orders.forEach(o => {
         ordersTable.innerHTML += `
             <tr>
                 <td>${o.client}</td>
-                <td>${o.date}</td>
+                <td>${new Date(o.date).toLocaleString()}</td>
                 <td>$${o.total}</td>
                 <td>${o.status}</td>
                 <td class="admin-only">
-                    <button onclick="removeOrder(${o.id})">Delete</button>
+                    <button onclick="toggleStatus('${o.id}')">
+                        ${o.status === 'Pending' ? 'Mark Delivered' : 'Mark Pending'}
+                    </button>
+                    <button onclick="removeOrder('${o.id}')">Delete</button>
                 </td>
             </tr>`;
     });
@@ -55,14 +56,24 @@ function render() {
 
 render();
 
+// ================= DELETE ORDER =================
 function removeOrder(id) {
     if (!confirm("Delete order?")) return;
-    orders = orders.filter(o => o.id !== id);
+    orders = orders.filter(o => String(o.id) !== String(id));
     localStorage.setItem("orders", JSON.stringify(orders));
     render();
 }
 
+// ================= TOGGLE STATUS =================
+function toggleStatus(id) {
+    const order = orders.find(o => String(o.id) === String(id));
+    if (!order) return;
+    order.status = order.status === "Pending" ? "Delivered" : "Pending";
+    localStorage.setItem("orders", JSON.stringify(orders));
+    render();
+}
 
+// ================= EXPORT CSV =================
 function exportToCSV(filename, rows) {
     if (!rows.length) return;
 
@@ -80,6 +91,7 @@ function exportToCSV(filename, rows) {
     link.download = filename;
     link.click();
 }
+
 document.getElementById("exportCsvBtn").onclick = () => {
-    exportToCSV("products.csv", orders);
+    exportToCSV("orders.csv", orders);
 };
