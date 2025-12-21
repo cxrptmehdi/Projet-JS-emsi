@@ -10,6 +10,8 @@
 <div class="navbar">
     <div class="logo">🌾 Farm Fresh</div>
     <div>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('fr')">FR</button>
         <button id="themeToggle">🌙</button>
         <span id="username"></span>
         <button id="logoutBtn">Logout</button>
@@ -20,12 +22,12 @@
 
 <div class="layout">
     <div class="sidebar">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="products.html">Products</a>
-        <a href="categories.html" class="admin-only">Categories</a>
-        <a href="clients.html" class="admin-only">Clients</a>
-        <a href="orders.html">Orders</a>
-        <a href="suppliers.html" class="admin-only">Suppliers</a>
+        <a data-i18n="dashboard" href="dashboard.html">Dashboard</a>
+        <a data-i18n="products" href="products.html">Products</a>
+        <a data-i18n="categories" href="categories.html" class="admin-only">Categories</a>
+        <a data-i18n="clients" href="clients.html" class="admin-only">Clients</a>
+        <a data-i18n="orders" href="orders.html">Orders</a>
+        <a data-i18n="suppliers" href="suppliers.html" class="admin-only">Suppliers</a>
     </div>
 
     <div class="content">

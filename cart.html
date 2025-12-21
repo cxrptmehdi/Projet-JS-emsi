@@ -11,6 +11,8 @@
 <div class="navbar">
     <div class="logo">🌾 Farm Fresh</div>
     <div>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('fr')">FR</button>
         <span id="username"></span>
         <button id="logoutBtn">Logout</button>
         <a href="cart.html" class="cart-btn">🛒 <span id="cartCount">0</span></a>
@@ -19,9 +21,9 @@
 
 <div class="layout">
     <div class="sidebar">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="products.html">Products</a>
-        <a href="orders.html">Orders</a>
+        <a data-i18n="dashboard" href="dashboard.html">Dashboard</a>
+        <a data-i18n="products" href="products.html">Products</a>
+        <a data-i18n="orders" href="orders.html">Orders</a>
     </div>
 
     <div class="content">
