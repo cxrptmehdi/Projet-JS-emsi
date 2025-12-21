@@ -9,11 +9,13 @@
 <body>
 
 <div class="navbar">
-    <div class="logo">🌾 Farm Equipment Store</div>
+    <div class="logo">🌾 Farm Fresh</div>
     <div>
+        <button onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('fr')">FR</button>
         <button id="themeToggle">🌙</button>
         <span id="username"></span>
-        <button id="logoutBtn">Logout</button>
+        <button data-i18n="logout" id="logoutBtn">Logout</button>
         <a href="cart.html" class="cart-btn">
     🛒 <span id="cartCount">0</span></a>
     </div>
@@ -56,6 +58,7 @@
     </div>
 </div>
 
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
