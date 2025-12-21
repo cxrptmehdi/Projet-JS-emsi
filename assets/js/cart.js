@@ -3,10 +3,17 @@ const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) location.href = "index.html";
 
 username.innerText = loggedUser.name;
-logoutBtn.onclick = () => {
-    localStorage.removeItem("loggedUser");
-    location.href = "index.html";
-};
+if (logoutBtn) {
+    logoutBtn.onclick = () => {
+        const lang = localStorage.getItem("lang") || "en";
+        const message = translations[lang].logout_confirm;
+
+        if (!confirm(message)) return;
+
+        localStorage.removeItem("loggedUser");
+        location.href = "index.html";
+    };
+}
 
 // ================= DATA =================
 const cartKey = `cart_${loggedUser.email}`;

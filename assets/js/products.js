@@ -18,10 +18,17 @@ const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) window.location.href = "index.html";
 
 document.getElementById("username").innerText = loggedUser.name;
-document.getElementById("logoutBtn").onclick = () => {
-    localStorage.removeItem("loggedUser");
-    window.location.href = "index.html";
-};
+if (logoutBtn) {
+    logoutBtn.onclick = () => {
+        const lang = localStorage.getItem("lang") || "en";
+        const message = translations[lang].logout_confirm;
+
+        if (!confirm(message)) return;
+
+        localStorage.removeItem("loggedUser");
+        location.href = "index.html";
+    };
+}
 
 if (loggedUser.role !== "admin") {
     document.getElementById("adminSection").style.display = "none";

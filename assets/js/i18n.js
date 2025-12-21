@@ -9,11 +9,13 @@ const translations = {
         cart: "Cart",
         add_to_cart: "Add to cart",
         logout: "Logout",
+        logout_confirm: "Are you sure you want to log out?",
         price: "Price",
         stock: "Stock",
         search: "Search...",
         total: "Total",
-        your_cart: "Your Cart"
+        your_cart: "Your Cart",
+        revenue: "Revenue"
     },
 
     fr: {
@@ -26,13 +28,16 @@ const translations = {
         cart: "Panier",
         add_to_cart: "Ajouter au panier",
         logout: "Déconnexion",
+        logout_confirm: "Êtes-vous sûr de vouloir vous déconnecter ?",
         price: "Prix",
         stock: "Stock",
         search: "Rechercher...",
         total: "Total",
-        your_cart: "Votre panier"
+        your_cart: "Votre panier",
+        revenue: "Revenu"
     }
 };
+
 
 function setLanguage(lang) {
     localStorage.setItem("lang", lang);

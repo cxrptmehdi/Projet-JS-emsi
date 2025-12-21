@@ -24,10 +24,17 @@ if (!loggedUser || loggedUser.role !== "admin") {
 }
 
 document.getElementById("username").innerText = loggedUser.name;
-document.getElementById("logoutBtn").onclick = () => {
-    localStorage.removeItem("loggedUser");
-    window.location.href = "index.html";
-};
+if (logoutBtn) {
+    logoutBtn.onclick = () => {
+        const lang = localStorage.getItem("lang") || "en";
+        const message = translations[lang].logout_confirm;
+
+        if (!confirm(message)) return;
+
+        localStorage.removeItem("loggedUser");
+        location.href = "index.html";
+    };
+}
 
 // =====================
 // DEMO DATA

@@ -19,10 +19,20 @@ if (!loggedUser) location.href = "index.html";
 
 username.innerText = loggedUser.name;
 
-logoutBtn.onclick = () => {
-    localStorage.removeItem("loggedUser");
-    location.href = "index.html";
-};
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.onclick = () => {
+        const lang = localStorage.getItem("lang") || "en";
+        const message = translations[lang].logout_confirm;
+
+        if (!confirm(message)) return;
+
+        localStorage.removeItem("loggedUser");
+        location.href = "index.html";
+    };
+}
+
 
 if (loggedUser.role !== "admin") {
     document.querySelectorAll(".admin-only").forEach(e => e.style.display = "none");
