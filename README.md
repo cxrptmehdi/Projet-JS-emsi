@@ -5,6 +5,8 @@ A simple JavaScript-based dashboard with:
 - Dark mode
 - Products, categories, clients CRUD
 - LocalStorage persistence
+- French and English language
+- loggout confirmation
 
 ## Tech
 - HTML
