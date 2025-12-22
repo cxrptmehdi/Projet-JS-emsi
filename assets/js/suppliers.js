@@ -1,4 +1,6 @@
-//DARK MODE
+// =====================
+// DARK MODE
+// =====================
 const themeToggle = document.getElementById("themeToggle");
 
 if (localStorage.getItem("theme") === "dark") {
@@ -13,14 +15,15 @@ themeToggle.onclick = () => {
     );
 };
 
-
-
+// =====================
+// AUTH / ROLE CHECK
+// =====================
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser || loggedUser.role !== "admin") {
     window.location.href = "dashboard.html";
 }
 
-username.innerText = loggedUser.name;
+document.getElementById("username").innerText = loggedUser.name;
 if (logoutBtn) {
     logoutBtn.onclick = () => {
         const lang = localStorage.getItem("lang") || "en";
@@ -33,61 +36,108 @@ if (logoutBtn) {
     };
 }
 
+// =====================
+// INIT STORAGE
+// =====================
 if (!localStorage.getItem("suppliers")) {
     localStorage.setItem("suppliers", JSON.stringify([]));
 }
 
+// =====================
+// STATE
+// =====================
 let suppliers = JSON.parse(localStorage.getItem("suppliers"));
 let editingId = null;
 
-function render() {
-    suppliersTable.innerHTML = "";
+// =====================
+// DOM ELEMENTS
+// =====================
+const table = document.getElementById("suppliersTable");
+const supplierForm = document.getElementById("supplierForm");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+
+// =====================
+// RENDER
+// =====================
+function renderSuppliers() {
+    table.innerHTML = "";
+
     suppliers.forEach(s => {
-        suppliersTable.innerHTML += `
+        table.innerHTML += `
             <tr>
                 <td>${s.name}</td>
                 <td>${s.email}</td>
                 <td>${s.phone}</td>
                 <td>
-                    <button onclick="edit(${s.id})">Edit</button>
-                    <button onclick="removeSupplier(${s.id})">Delete</button>
+                    <button onclick="editSupplier(${s.id})">Edit</button>
+                    <button onclick="deleteSupplier(${s.id})">Delete</button>
                 </td>
-            </tr>`;
+            </tr>
+        `;
     });
 }
 
-render();
+renderSuppliers();
 
+// =====================
+// CREATE / UPDATE
+// =====================
 supplierForm.onsubmit = e => {
     e.preventDefault();
-    const supplier = {
-        id: editingId || Date.now(),
-        name: name.value,
-        email: email.value,
-        phone: phone.value
-    };
 
-    editingId
-        ? suppliers = suppliers.map(s => s.id === editingId ? supplier : s)
-        : suppliers.push(supplier);
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
 
-    editingId = null;
+    if (!name || !email || !phone) {
+        alert("All fields are required");
+        return;
+    }
+
+    if (editingId) {
+        suppliers = suppliers.map(s =>
+            s.id === editingId
+                ? { id: editingId, name, email, phone }
+                : s
+        );
+        editingId = null;
+    } else {
+        suppliers.push({
+            id: Date.now(),
+            name,
+            email,
+            phone
+        });
+    }
+
     localStorage.setItem("suppliers", JSON.stringify(suppliers));
-    e.target.reset();
-    render();
+    supplierForm.reset();
+    renderSuppliers();
 };
 
-function edit(id) {
+// =====================
+// EDIT
+// =====================
+function editSupplier(id) {
     const s = suppliers.find(s => s.id === id);
-    name.value = s.name;
-    email.value = s.email;
-    phone.value = s.phone;
+    if (!s) return;
+
+    nameInput.value = s.name;
+    emailInput.value = s.email;
+    phoneInput.value = s.phone;
     editingId = id;
 }
 
-function removeSupplier(id) {
-    if (!confirm("Delete supplier?")) return;
+// =====================
+// DELETE
+// =====================
+function deleteSupplier(id) {
+    if (!confirm("Delete this supplier?")) return;
+
     suppliers = suppliers.filter(s => s.id !== id);
     localStorage.setItem("suppliers", JSON.stringify(suppliers));
-    render();
+    renderSuppliers();
 }
