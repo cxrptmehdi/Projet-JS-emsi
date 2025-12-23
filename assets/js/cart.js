@@ -1,3 +1,18 @@
+// ================= DARK MODE =================
+const themeToggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
+
+themeToggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+    );
+};
+
 // ================= AUTH =================
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 if (!loggedUser) location.href = "index.html";

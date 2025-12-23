@@ -112,8 +112,8 @@ function render(list = products) {
                 <td>${p.stock}</td>
                 <td>
                     ${loggedUser.role === "admin"
-                        ? `<button onclick="editProduct('${p.id}')">Edit</button>
-                           <button onclick="deleteProduct('${p.id}')">Delete</button>`
+                        ? `<button data-i18n="edit" onclick="editProduct('${p.id}')">Edit</button>
+                           <button data-i18n="delete" onclick="deleteProduct('${p.id}')">Delete</button>`
                         : `<button onclick="addToCart('${p.id}')">Add to cart</button>`
                     }
                 </td>

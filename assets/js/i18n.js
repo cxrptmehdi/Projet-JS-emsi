@@ -15,7 +15,16 @@ const translations = {
         search: "Search...",
         total: "Total",
         your_cart: "Your Cart",
-        revenue: "Revenue"
+        revenue: "Revenue",
+        name: "Name",
+        category: "Category",
+        save: "Save",
+        edit: "Edit",
+        delete: "Delete",
+        phone: "Phone",
+        your_cart: "Your Cart",
+        checkout: "Checkout",
+        qty: "Qty"
     },
 
     fr: {
@@ -34,7 +43,16 @@ const translations = {
         search: "Rechercher...",
         total: "Total",
         your_cart: "Votre panier",
-        revenue: "Revenu"
+        revenue: "Revenu",
+        name: "Nom",
+        category: "Catégorie",
+        save: "Enregistrer",
+        edit: "Modifier",
+        delete: "Supprimer",
+        phone: "Téléphone",
+        your_cart: "Votre Panier",
+        checkout: "Passer à la caisse",
+        qty: "Qté"
     }
 };
 

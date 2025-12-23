@@ -16,7 +16,7 @@
         <button onclick="setLanguage('fr')">FR</button>
         <button id="themeToggle">🌙</button>
         <span id="username"></span>
-        <button id="logoutBtn">Logout</button>
+        <button data-i18n="logout" id="logoutBtn">Logout</button>
         <a href="cart.html" class="cart-btn">
     🛒 <span id="cartCount">0</span></a>
     </div>
@@ -33,12 +33,12 @@
     </div>
 
     <div class="content">
-        <h1>Categories</h1>
+        <h1 data-i18n="categories">Categories</h1>
 
         <form id="categoryForm">
             <input type="text" id="name" placeholder="Name" required>
             <input type="text" id="description" placeholder="Description" required>
-            <button type="submit">Save</button>
+            <button data-i18n="save" type="submit">Save</button>
             <button id="exportCsvBtn">Export CSV</button>
 
         </form>
@@ -48,7 +48,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th data-i18n="name" >Name</th>
                     <th>Description</th>
                     <th>Actions</th>
                 </tr>

@@ -13,8 +13,9 @@
     <div>
         <button onclick="setLanguage('en')">EN</button>
         <button onclick="setLanguage('fr')">FR</button>
+        <button id="themeToggle">🌙</button>
         <span id="username"></span>
-        <button id="logoutBtn">Logout</button>
+        <button data-i18n="logout" id="logoutBtn">Logout</button>
         <a href="cart.html" class="cart-btn">🛒 <span id="cartCount">0</span></a>
     </div>
 </div>
@@ -27,14 +28,14 @@
     </div>
 
     <div class="content">
-        <h1>Your Cart</h1>
+        <h1 data-i18n="your_cart" >Your Cart</h1>
 
         <table>
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Qty</th>
+                    <th data-i18n="products">Product</th>
+                    <th data-i18n="price">Price</th>
+                    <th data-i18n="qty">Qty</th>
                     <th>Total</th>
                     <th></th>
                 </tr>
@@ -43,7 +44,7 @@
         </table>
         <h3 id="cartTotal"></h3>
 
-<button id="checkoutBtn">Checkout</button>
+<button data-i18n="checkout" id="checkoutBtn">Checkout</button>
 
         <h3 id="cartTotal"></h3>
     </div>

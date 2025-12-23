@@ -15,7 +15,7 @@
         <button onclick="setLanguage('fr')">FR</button>
         <button id="themeToggle">🌙</button>
         <span id="username"></span>
-        <button id="logoutBtn">Logout</button>
+        <button data-i18n="logout" id="logoutBtn">Logout</button>
         <a href="cart.html" class="cart-btn">
     🛒 <span id="cartCount">0</span></a>
     </div>
@@ -32,19 +32,22 @@
     </div>
 
     <div class="content">
-        <h1>Suppliers</h1>
+        <h1 data-i18n="suppliers">Suppliers</h1>
 
         <form id="supplierForm">
             <input type="text" id="name" placeholder="Name" required>
             <input type="email" id="email" placeholder="Email" required>
             <input type="text" id="phone" placeholder="Phone" required>
-            <button type="submit">Save</button>
+            <button data-i18n="save" type="submit">Save</button>
         </form>
 
         <table>
             <thead>
                 <tr>
-                    <th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
+                    <th data-i18n="name">Name</th>
+                    <th>Email</th>
+                    <th data-i18n="phone">Phone</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="suppliersTable"></tbody>
