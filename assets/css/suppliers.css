@@ -1,31 +1,105 @@
+/* FORM */
 form {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
 }
 
 form input {
-    padding: 8px;
-    margin-right: 10px;
+    padding: 10px;
+    margin-right: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+form input:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+/* TABLE */
 table {
     width: 100%;
-    background: white;
+    background: #ffffff;
     border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 th {
+    padding: 12px 15px;
     background: #e8f5e9;
+    color: #333;
+    text-align: left;
+    font-weight: 600;
 }
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+/* ROW HOVER */
+tbody tr:hover {
+    background: rgba(46, 125, 50, 0.05);
+}
+
+/* ACTION BUTTONS */
 td button {
-    padding: 5px 8px;
+    padding: 6px 10px;
     background: #c62828;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+td button:hover {
+    background: #b71c1c;
+    transform: translateY(-1px);
+}
+
+/* DARK MODE */
+body.dark form input {
+    background: #2c2c2c;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark form input:focus {
+    border-color: #81c784;
+    box-shadow: 0 0 5px rgba(129, 199, 132, 0.4);
+}
+
+body.dark table {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark th {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark td {
+    border-bottom: 1px solid #333;
+}
+
+body.dark tbody tr:hover {
+    background: rgba(129, 199, 132, 0.1);
+}
+
+body.dark td button {
+    background: #e57373;
+}
+
+body.dark td button:hover {
+    background: #ef5350;
 }

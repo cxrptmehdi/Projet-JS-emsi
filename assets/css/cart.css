@@ -1,10 +1,88 @@
+/* TABLE STYLING */
 table {
     width: 100%;
-    background: white;
+    background: var(--card-bg, #ffffff);
     border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: background var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+/* TABLE HEADERS */
+th {
+    padding: 12px 15px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: left;
+    font-weight: 600;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* TABLE CELLS */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background var(--transition-speed);
+}
+
+/* ROW HOVER */
+tbody tr:hover {
+    background: rgba(46, 125, 50, 0.05);
+}
+
+/* DARK MODE */
+body.dark table {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark th {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark td {
+    border-bottom: 1px solid #333;
+}
+
+body.dark tbody tr:hover {
+    background: rgba(129, 199, 132, 0.1);
+}
+
+/* RESPONSIVE TABLE */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--input-border, #ccc);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    td {
+        padding: 10px;
+        text-align: right;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        font-weight: bold;
+        text-align: left;
+        color: var(--color-text, #333);
+    }
 }
