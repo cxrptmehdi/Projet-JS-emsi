@@ -15,7 +15,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--color-bg);
+    background: var(--color-bg)url('https://www.aquaportail.com/pictures2111/agricole.jpg') no-repeat center center;
+    background-size: cover;
     font-family: 'Arial', sans-serif;
     transition: background var(--transition-speed), color var(--transition-speed);
 }
