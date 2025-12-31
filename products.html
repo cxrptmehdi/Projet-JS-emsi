@@ -38,7 +38,9 @@
         <div id="adminSection">
             <form id="productForm">
                 <input type="text" id="name" placeholder="Name" required>
-                <input type="text" id="category" placeholder="Category" required>
+                <select id="category" required>
+                    <option value="">-- Select Category --</option>
+                </select>
                 <input type="number" id="price" placeholder="Price" required>
                 <input type="number" id="stock" placeholder="Stock" required>
                 <button data-i18n="save" type="submit">Save</button>

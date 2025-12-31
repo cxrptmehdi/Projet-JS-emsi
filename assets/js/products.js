@@ -41,6 +41,24 @@ const categoryInput = document.getElementById("category");
 const priceInput = document.getElementById("price");
 const stockInput = document.getElementById("stock");
 
+// ================= LOAD CATEGORIES =================
+function loadCategories() {
+    const categories = JSON.parse(localStorage.getItem("categories")) || [];
+
+    categoryInput.innerHTML = `<option value="">-- Select Category --</option>`;
+
+    categories.forEach(c => {
+        const option = document.createElement("option");
+        option.value = c.name;      // store name in product
+        option.textContent = c.name;
+        categoryInput.appendChild(option);
+    });
+}
+
+loadCategories();
+
+
+
 // ================= CART =================
 const cartKey = `cart_${loggedUser.email}`;
 

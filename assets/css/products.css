@@ -1,25 +1,43 @@
-/* ADMIN SECTION */
+/* ================= ADMIN SECTION ================= */
 #adminSection {
     margin-bottom: 25px;
     transition: all 0.3s ease;
 }
 
-/* PRODUCT FORM */
-#productForm input {
+/* ================= PRODUCT FORM ================= */
+#productForm input,
+#productForm select {
     padding: 10px;
     margin-right: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
     font-size: 14px;
+    background: #ffffff;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#productForm input:focus {
+/* REMOVE DEFAULT SELECT LOOK */
+#productForm select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%232e7d32' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5 7l4.5 4.5L14.5 7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+/* FOCUS STATE */
+#productForm input:focus,
+#productForm select:focus {
     border-color: #2e7d32;
     box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
 }
 
+/* ================= BUTTONS ================= */
 button {
     padding: 10px 16px;
     background: var(--color-primary, #2e7d32);
@@ -36,7 +54,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* TABLE */
+/* ================= TABLE ================= */
 table {
     width: 100%;
     background: #ffffff;
@@ -62,13 +80,12 @@ td {
     transition: background 0.3s;
 }
 
-/* ROW HOVER */
+/* ================= ROW HOVER ================= */
 tbody tr:hover {
     background: rgba(46, 125, 50, 0.05);
 }
 
-/* ACTION BUTTONS */
-
+/* ================= ACTION BUTTONS ================= */
 td button {
     padding: 6px 10px;
     border: none;
@@ -85,14 +102,16 @@ td button:hover {
     transform: translateY(-1px);
 }
 
-/* DARK MODE */
-body.dark #productForm input {
+/* ================= DARK MODE ================= */
+body.dark #productForm input,
+body.dark #productForm select {
     background: #2c2c2c;
     border-color: #555;
     color: #e0e0e0;
 }
 
-body.dark #productForm input:focus {
+body.dark #productForm input:focus,
+body.dark #productForm select:focus {
     border-color: #81c784;
     box-shadow: 0 0 5px rgba(129, 199, 132, 0.4);
 }

@@ -31,7 +31,7 @@ const defaultUsers = [
     }
 ];
 
-// Initialize users if not exists
+// Initial users
 if (!localStorage.getItem("users")) {
     localStorage.setItem("users", JSON.stringify(defaultUsers));
 }

@@ -84,8 +84,8 @@ function render(list = categories) {
                 <td>${c.name}</td>
                 <td>${c.description}</td>
                 <td>
-                    <button onclick="editCategory(${c.id})">Edit</button>
-                    <button onclick="deleteCategory(${c.id})">Delete</button>
+                    <button onclick="editCategory('${c.id}')">Edit</button>
+                    <button onclick="deleteCategory('${c.id}')">Delete</button>
                 </td>
             </tr>
         `;
@@ -138,11 +138,14 @@ form.onsubmit = e => {
 // EDIT
 // =====================
 function editCategory(id) {
-    const c = categories.find(c => c.id === id);
+    const c = categories.find(c => String(c.id) === String(id));
+    if (!c) return;
+
     nameInput.value = c.name;
     descriptionInput.value = c.description;
-    editingId = id;
+    editingId = c.id;
 }
+
 
 // =====================
 // DELETE
