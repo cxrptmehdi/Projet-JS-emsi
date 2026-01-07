@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Farm Store | Products</title>
+    <title>Farm Store | Clients</title>
     <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/products.css">
+    <link rel="stylesheet" href="assets/css/clients.css">
 </head>
 <body>
 
@@ -22,6 +22,8 @@
 </div>
 
 <div class="layout">
+
+<div class="layout">
     <div class="sidebar">
         <a data-i18n="dashboard" href="dashboard.html">Dashboard</a>
         <a data-i18n="products" href="products.html">Products</a>
@@ -32,46 +34,33 @@
     </div>
 
     <div class="content">
-        <h1 data-i18n="products" >Products</h1>
+        <h1>Clients</h1>
 
-        
-        <div id="adminSection">
-            <form id="productForm">
-                <input type="text" id="name" placeholder="Name" required>
-                <select id="category" required>
-                    <option value="">-- Select Category --</option>
-                </select>
-                <input type="number" id="price" placeholder="Price" required>
-                <input type="number" id="stock" placeholder="Stock" required>
-                <button data-i18n="save" type="submit">Save</button>
-                <button id="exportCsvBtn">Export CSV</button>
+        <form id="clientForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="phone" placeholder="Phone" required>
+            <button type="submit">Add Client</button>
+            <button id="exportCsvBtn">Export CSV</button>
 
-            </form>
-        </div>
-
-        <input type="text" id="searchInput" placeholder="Search product...">
+        </form>
 
         <table>
             <thead>
                 <tr>
-                    <th data-i18n="name" >Name</th>
-                    <th data-i18n="category" >Category</th>
-                    <th data-i18n="price" >Price</th>
-                    <th>Stock</th>
+                    <th data-i18n="name">Name</th>
+                    <th>Email</th>
+                    <th data-i18n="phone">Phone</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id="productsTable"></tbody>
+            <tbody id="clientsTable"></tbody>
         </table>
-
-        <div class="pagination">
-            <button id="prevBtn">Prev</button>
-            <button id="nextBtn">Next</button>
-        </div>
     </div>
+
 </div>
 
 <script src="assets/js/i18n.js"></script>
-<script src="assets/js/products.js"></script>
+<script src="assets/js/clients.js"></script>
 </body>
 </html>
