@@ -1,4 +1,4 @@
-//DARK MODE
+// ===== DARK MODE ======
 const themeToggle = document.getElementById("themeToggle");
 
 if (localStorage.getItem("theme") === "dark") {

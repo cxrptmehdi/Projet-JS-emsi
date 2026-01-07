@@ -22,7 +22,6 @@ const translations = {
         edit: "Edit",
         delete: "Delete",
         phone: "Phone",
-        your_cart: "Your Cart",
         checkout: "Checkout",
         qty: "Qty"
     },
@@ -50,7 +49,6 @@ const translations = {
         edit: "Modifier",
         delete: "Supprimer",
         phone: "Téléphone",
-        your_cart: "Votre Panier",
         checkout: "Passer à la caisse",
         qty: "Qté"
     }

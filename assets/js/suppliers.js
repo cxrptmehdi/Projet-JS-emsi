@@ -37,7 +37,7 @@ if (logoutBtn) {
 }
 
 // =====================
-// INIT STORAGE
+// DEMO STORAGE
 // =====================
 if (!localStorage.getItem("suppliers")) {
     localStorage.setItem("suppliers", JSON.stringify([]));

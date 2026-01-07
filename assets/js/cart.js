@@ -79,7 +79,7 @@ document.getElementById("checkoutBtn").onclick = () => {
         return;
     }
 
-    // 1️⃣ STOCK VALIDATION
+    // 1 STOCK VALIDATION
     for (let item of cart) {
         const product = products.find(p => String(p.id) === String(item.id));
         if (!product || product.stock < item.qty) {
@@ -88,13 +88,13 @@ document.getElementById("checkoutBtn").onclick = () => {
         }
     }
 
-    // 2️⃣ DECREASE STOCK
+    // 2 DECREASE STOCK
     cart.forEach(item => {
         const product = products.find(p => String(p.id) === String(item.id));
         product.stock -= item.qty;
     });
 
-    // 3️⃣ CREATE ORDER (NEW STRUCTURE)
+    // 3 CREATE ORDER (NEW STRUCTURE)
     const order = {
         id: `o_${Date.now()}`,           // unique order ID
         userEmail: loggedUser.email,     // store email
@@ -107,12 +107,12 @@ document.getElementById("checkoutBtn").onclick = () => {
 
     orders.push(order);
 
-    // 4️⃣ SAVE DATA
+    // 4 SAVE DATA
     localStorage.setItem("products", JSON.stringify(products));
     localStorage.setItem("orders", JSON.stringify(orders));
     localStorage.removeItem(cartKey); // clear cart
 
-    // 5️⃣ FINISH
+    // 5 FINISH
     alert("Checkout successful!");
     window.location.href = "orders.html";
 };
